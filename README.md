@@ -45,3 +45,27 @@ The repository is organized to facilitate code reuse:
 1. Clone this repository into your Databricks Workspace using **Repos**.
 2. Run the `main_pipeline` notebook to process all layers automatically.
 3. Run the analysis/business_analysis notebook in order to see business metrics.
+
+
+
+## 🚀 Future Improvements (Roadmap)
+
+To evolve this project into a production-ready data platform, the following steps are planned, categorized by engineering domain:
+
+### 📂 Data Engineering & Orchestration
+* **Incremental Ingestion & Transformation:** Implement Delta Lake's `MERGE` logic or Change Data Feed (CDF) to process only new or updated records instead of full overwrites.
+* **Cloud Agnostic Storage:** Migrate the raw layer to a cloud-native object store (e.g., AWS S3) to decouple storage from the compute workspace.
+* **Geospatial Enrichment:** Perform Joins with the NYC Taxi Zones lookup table to transform location IDs into human-readable Borough and Zone names.
+
+### 🏗️ DevOps & CI/CD
+* **Branch Protection:** Implement Branch Protection Rules on the `main` branch to ensure code quality via Pull Requests.
+* **CI/CD Pipelines:** Setup GitHub Actions to automate notebook deployment and run unit tests on Spark logic.
+* **Tool Agnostic Transition:** Refactor the core logic into a Python package (using Poetry or Setuptools) to allow the pipeline to run on any Spark-compliant environment (AWS EMR, GCP Dataproc, or local clusters).
+
+### 🛡️ Data Governance & Quality
+* **Data Quality Testing:** Integrate a validation framework to enforce "hard" constraints on the Silver layer (e.g., ensuring `total_amount` is never null or negative) before writing to the table.
+* **Monitoring & Alerting:** Implement an automated monitoring system to send notifications (Slack/Email) if the ingestion volume drops below a specific threshold or if a job fails.
+
+### 📝 Knowledge Sharing
+* **Medium Article:** Write a technical post detailing the challenges of handling NYC Taxi schema evolution and the benefits of the Medallion Architecture.
+* **Documentation Expansion:** Create a detailed Data Dictionary in the Unity Catalog for all Gold layer assets.
