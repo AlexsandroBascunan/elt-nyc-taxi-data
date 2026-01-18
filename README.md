@@ -1,6 +1,6 @@
 # NYC Taxi Data Pipeline - Medallion Architecture 🚕 🗽
 
-This project consists of an end-to-end data pipeline developed in **Databricks Free Edition**, utilizing the **Medallion Architecture**. The objective is to ingest, process and analyze public New York City taxi data (TLC Trip Record Data) with a focus on scalability, data quality, and governance through **Unity Catalog**.
+This project consists of an end-to-end data pipeline developed in **Databricks Free Edition**, utilizing the **Medallion Architecture**. The objective is to ingest, process and analyze public New York City taxi data [(TLC Trip Record Data)](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) with a focus on scalability, data quality, and governance through **Unity Catalog**.
 
 
 
