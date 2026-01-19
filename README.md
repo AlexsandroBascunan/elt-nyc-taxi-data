@@ -30,14 +30,22 @@ NYC Taxi Parquet files frequently undergo schema changes (e.g., uppercase vs. lo
 ### 2. Partitioning and Performance
 The final tables were partitioned by **Year** and **Month**. This optimizes Delta Lake's *Data Skipping* capabilities, ensuring that analytical queries on specific months do not need to scan the entire historical database.
 
-## 📂 Notebook Structure
-The repository is organized to facilitate code reuse:
+## 📂 Repository Structure
+The folder src/ is organized to facilitate code reuse:
 1. `initial_setup`: Creation of catalogs, schemas, and volumes.
 2. `ingestion`: TLC Trip Record Data ingestion and writing in the raw layer.
 3. `bronze`: Normalization logic.
 4. `silver`: Transformation and Data Quality.
 5. `gold`: Unification of taxi data. (Aggregations and business metrics are consolidated on analysis/ folder)
 6. `main_pipeline`: Central orchestrator that executes the complete flow.
+
+The folder analysis/ has one notebook with business metrics.
+
+The requirements.txt file was generated with the following command on Databricks:
+````
+%sh
+pip freeze
+````
 
 
 
